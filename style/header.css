@@ -55,6 +55,7 @@
   flex: 1;
   border-radius: 4px 0 0 4px;
   border: none;
+  outline: none;
   padding-left: 15px;
 }
 .search-button {
@@ -89,10 +90,7 @@
   font-size: 13px;
 }
 .search-bar:focus{
-  /* outline: rgb(0, 21, 255); */
-   border-top: 2px solid rgb(244, 138, 0);
-   border-left: 2px solid rgb(244, 138, 0);
-   border-bottom: 2px solid rgb(244, 138, 0);
+  outline: rgb(244, 138, 0);
 }
 .orders-text {
   display: block;
