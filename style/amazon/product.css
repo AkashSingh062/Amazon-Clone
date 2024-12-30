@@ -8,7 +8,7 @@ body {
 .main {
   margin-top: 60px;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(8, 1fr);
   justify-content: space-around;
   border: 1px solid rgb(231, 231, 231);
 }
@@ -116,40 +116,35 @@ body {
   border: 1px solid rgb(251, 210, 0);
   cursor: pointer;
 }
-
-@media screen and (max-width: 380px){
+@media screen and (max-width: 1400px){
   .main{
-    grid-template-columns: 1fr;
+    overflow: hidden;
+    grid-template-columns: repeat(7, 1fr);
   }
-  .amazon-header-left-section {
-    width: 30px;
+}
+@media screen and (max-width: 1300px){
+  .main{
+    overflow: hidden;
+    grid-template-columns: repeat(6, 1fr);
   }
-  .amazon-mobile-logo{
-    width: 28px;
-    display: inline;
+}
+@media screen and (max-width: 1100px){
+  .main{
+    overflow: hidden;
+    grid-template-columns: repeat(5, 1fr);
   }
-  .amazon-logo{
-    display: none;
+}
+
+@media screen and (max-width: 900px){
+  .main{
+    overflow: hidden;
+    grid-template-columns: repeat(4, 1fr);
   }
-  .amazon-header-middle-section {
-    margin-right:0px;
-  }
-  .amazon-header-right-section {
-    width: 140px;
-  }
-  .orders-text {
-    font-size: 11px;
-  }
-  .cart-icon {
-    height: 20px;
-  }
-  .cart-quantity {
-    left: 20px;
-    top: 7px;
-    font-size: 14px;
-  }
-  .cart-text {
-    font-size: 12px;
+}
+@media screen and (max-width: 750px){
+  .main{
+    overflow: hidden;
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 @media screen and (max-width: 550px){
@@ -186,5 +181,11 @@ body {
   }
   .cart-text {
     font-size: 12px;
+  }
+}
+@media screen and (max-width: 350px){
+  .main{
+    overflow: hidden;
+    grid-template-columns: 1fr;
   }
 }
