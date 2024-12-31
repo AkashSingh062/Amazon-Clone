@@ -92,26 +92,57 @@ body{
     font-size: 20px;
     font-weight: 500;
   }
+  .main {
+    padding: 0 8px; 
+  }
+
+  .cart-item-container1 {
+    min-width: 300px; 
+    min-height: 350px;
+  }
 }
 .main{
   width: 100%;
   min-height: calc(100vh - 60px);
   margin-top: 180px;
   font-size: 20px;
-  margin-bottom: 150px;
+  margin-bottom: auto;
   padding: 0 12px 0 12px;
   display: grid;
+  grid-template-rows: repeat(auto-fit, minmax(100px, auto));
+  grid-auto-rows: minmax(400px, auto); 
   justify-content: center;
+  align-items: start;
+  background: #ddadad;
 }
 .payment-summary-container{
   max-width: 550px;
-  min-width: 300px;
+  min-width: 350px;
+  
   margin-bottom: 13px;
   display: block;
+  background: #6c6363;
 }
 .cart-item-container1{
   max-width: 550px;
-  min-width: 300px;
+  min-width: 350px;
+  min-height: 400px;
+  height: auto;
+  display: block;
+  background: #eac2c2;
+}
+.amazon-header-middle-section,
+.amazon-header-right-section {
+  flex-shrink: 0; /* Prevent shrinking */
+}
+.cart-item-container1:empty::before {
+  content: "Your cart is empty.";
+  display: block;
+  text-align: center;
+  font-size: 18px;
+  color: #555;
+  padding: 20px;
+  height: 100%; 
 }
 .page-title{
   max-width: 550px;
@@ -188,4 +219,28 @@ input[type="checkbox"] {
   font-size: 16px;
   font-weight: 400;
   cursor: pointer;
+}
+@media screen and (max-width: 600px){
+  .amazon-mobile-logo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+  }
+  .amazon-logo{
+    display: none;
+  }
+  .amazon-header-middle-section{
+    font-size: 20px;
+    font-weight: 500;
+  }
+  .main {
+    padding: 0 8px; 
+  }
+
+  .cart-item-container1 {
+    min-width: 300px; 
+    min-height: 350px;
+  }
 }
