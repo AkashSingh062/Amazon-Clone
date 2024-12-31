@@ -1,4 +1,6 @@
 .cart-items-container{
+  box-sizing: border-box;
+  width: 100%;
   border: 1px solid #c9c8c8;
   padding: 15px 18px;
   border-radius: 8px;

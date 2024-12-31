@@ -10,7 +10,7 @@ const cartItems = [
     productId: "15b6fc6f-327a-4ec4-896f-486349e85a3d",
     quantity: 2,
     deliveryOptionId: "2",
-  }
+  },
 ];
 
 function renderCheckout() {
@@ -37,7 +37,7 @@ function renderCheckout() {
                 <input type="number" class="new-quantity-input" />
                 <span class="update-quantity-link">Update</span>
                 <span class="save-quantity">Save</span>
-                <span class="delete-quantity" data-id="${product.id}">Delete</span>
+                <span class="delete-quantity delete-quantity-js" data-id="${product.id}">Delete</span>
               </div>
             </div>
             <div class="delivery-options">
@@ -85,19 +85,16 @@ function renderCheckout() {
           </div>
         </div>`;
   });
-
   document.querySelector(".cart-item-container1").innerHTML = cartHTML;
 }
 
 renderCheckout();
 
-document.querySelectorAll(".delete-quantity").forEach((del, idx) => {
+document.querySelectorAll(".delete-quantity-js").forEach((del, idx) => {
   del.addEventListener("click", () => {
-    
     console.log(cartItems);
     cartItems.splice(idx, 1);
     console.log(cartItems);
-renderCheckout();
-    });
+    renderCheckout();
   });
-
+});
