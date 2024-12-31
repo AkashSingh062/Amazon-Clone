@@ -1,10 +1,14 @@
 import { products } from "../Data/products.js";
-
-
+import { cartItems } from "../Data/cart.js";
 
 const body = document.querySelector(".main-js");
-
-
+function cartQuantityCalculate(cart){
+  let num = 0;
+    cart.forEach((item) => {
+      num += item.quantity;
+    });
+    return num;
+}
 function renderProducts() {
   let html = "";
   products.forEach((product) => {
@@ -52,25 +56,45 @@ function renderProducts() {
           </div>
         </div>
         <div class="add-to-cart">
-          <button class="add-to-cart-button add-to-cart-btn-js" data-id = "${product.id}">Add to Cart</button>
+          <button class="add-to-cart-button add-to-cart-btn-js" data-id = "${
+            product.id
+          }">Add to Cart</button>
         </div>
       </div>`;
   });
   body.innerHTML = html;
+  document.querySelector(".cart-quantity-js").innerText = cartQuantityCalculate(cartItems);
 }
 renderProducts();
 
-let productQuantity = parseInt(document.querySelector(".cart-quantity").innerText);
 
-document.querySelectorAll(".add-to-cart-btn-js").forEach((cartItems) => {
-  cartItems.addEventListener("click", () => {
-    const productId = cartItems.dataset.id;
+let productQuantity = parseInt(
+  document.querySelector(".cart-quantity").innerText
+);
+
+document.querySelectorAll(".add-to-cart-btn-js").forEach((Items) => {
+  Items.addEventListener("click", () => {
+    const productId = Items.dataset.id;
     document.querySelector(".cart-quantity").innerText = productQuantity;
-    
-    const productContainer = cartItems.closest(".product-container");
-    const quantity = productContainer.querySelector(".product-quantity-js");
-    productQuantity += parseInt(quantity.value);
 
-    console.log(`Selected Quantity for Product ID ${productId}: ${quantity.value}`);
+    const productContainer = Items.closest(".product-container");
+    const quantity = productContainer.querySelector(".product-quantity-js");
+    let q = 0;
+    let matchingItem;
+    cartItems.forEach((cartItem) => {
+      if (cartItem.productId === productId) {
+        matchingItem = cartItem;
+      }
+    });
+    if (matchingItem) {
+      matchingItem.quantity += parseInt(quantity.value);
+    } else {
+      cartItems.push({
+        productId: productId,
+        quantity: parseInt(quantity.value),
+        deliveryOptionId: "1",
+      });
+    }
+    document.querySelector(".cart-quantity-js").innerText = cartQuantityCalculate(cartItems);
   });
 });
