@@ -82,6 +82,7 @@ body{
   width: 100%;
   min-height: 350px;
   margin-top: 150px;
+  margin-bottom: 150px;
   padding: 12px;
   overflow: scroll;
   display: grid;
