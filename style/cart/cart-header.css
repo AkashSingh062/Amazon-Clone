@@ -104,7 +104,13 @@ main {
   margin-bottom: 150px;
   padding: 0 12px 0 12px;
 }
+.payment-summary-container{
+  max-width: 550px;
+  min-width: 550px;
+}
 .page-title{
+  max-width: 550px;
+  min-width: 300px;
   font-weight: 600;
   font-size: 22px;
   margin-bottom: 10px;
