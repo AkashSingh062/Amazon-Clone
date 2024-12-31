@@ -93,21 +93,20 @@ body{
     font-weight: 500;
   }
 }
-main {
+.main{
   width: 100%;
   min-height: calc(100vh - 60px);
   margin-top: 180px;
   font-size: 20px;
   margin-bottom: 150px;
   padding: 0 12px 0 12px;
-}
-.main{
   display: grid;
   justify-content: center;
 }
 .payment-summary-container{
   max-width: 550px;
   min-width: 300px;
+  margin-bottom: 13px;
   display: block;
 }
 .cart-item-container1{
@@ -127,7 +126,6 @@ main {
   border: 1px solid #c9c8c8;
   padding: 15px 18px;
   border-radius: 8px;
-  margin-bottom: 12px;
 }
 .payment-summary-title{
   font-size: 20px;
