@@ -82,9 +82,15 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 30px;
+    height: 30px;
   }
   .amazon-logo{
     display: none;
+  }
+  .amazon-header-middle-section{
+    font-size: 20px;
+    font-weight: 500;
   }
 }
 main {
