@@ -153,7 +153,7 @@ body {
     grid-template-columns: repeat(2, 1fr);
   }
   .amazon-header-left-section {
-    width: 30px;
+    width: 40px;
   }
   .amazon-mobile-logo{
     width: 28px;
@@ -163,24 +163,7 @@ body {
     display: none;
   }
   .amazon-header-middle-section {
-    margin-right:0px;
-  }
-  .amazon-header-right-section {
-    width: 140px;
-  }
-  .orders-text {
-    font-size: 11px;
-  }
-  .cart-icon {
-    height: 20px;
-  }
-  .cart-quantity {
-    left: 20px;
-    top: 7px;
-    font-size: 14px;
-  }
-  .cart-text {
-    font-size: 12px;
+    margin-right:5px;
   }
 }
 @media screen and (max-width: 350px){

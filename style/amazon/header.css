@@ -76,14 +76,14 @@
 .amazon-header-right-section {
   width: 180px;
   flex-shrink: 0;
+  margin-left: 4px;
   display: flex;
   justify-content: end;
-  border: none;
+  /* border: none; */
   outline: none;
 }
 .orders-link {
   color: white;
-  border: 1px solid #000000;
 }
 .returns-text {
   display: block;
@@ -98,22 +98,19 @@
   font-weight: 700;
 }
 .cart-link {
-   border: 1px solid #000000;
   display: flex;
   position: relative;
   align-items: center;
   color: #fff;
 }
 .cart-icon {
-  height: 35px;
+  height: 32px;
 }
 .cart-quantity {
-
   position: absolute;
-  width: 50px;
+  width: 60%;
   text-align: center;
   top: 5px;
-  left: 10px;
   font-weight: 600;
   font-size: 15px;
   color: rgb(244, 138, 0);
