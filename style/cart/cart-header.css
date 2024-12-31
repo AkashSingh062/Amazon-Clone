@@ -14,15 +14,14 @@ body{
 }
 .cart-header {
   height: 60px;
-  padding-left: 15px;
-  padding-right: 15px;
+  padding-left: 30px;
+  padding-right: 20px;
   background: #fff;
 
   display: flex;
   justify-content: center;
   align-items: center;
   flex-shrink: 1;
-  margin: 10px 12px 0px 18px;
 
   position: fixed;
   top: 0;
