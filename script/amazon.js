@@ -1,14 +1,8 @@
 import { products } from "../Data/products.js";
-import { cartItems } from "../Data/cart.js";
+import { cartItems, addToCart, cartQuantityCalculate } from "../Data/cartItems.js";
 
-const body = document.querySelector(".main-js");
-function cartQuantityCalculate(cart){
-  let num = 0;
-    cart.forEach((item) => {
-      num += item.quantity;
-    });
-    return num;
-}
+
+
 function renderProducts() {
   let html = "";
   products.forEach((product) => {
@@ -34,7 +28,7 @@ function renderProducts() {
         )}</div>
         <div class="product-quantity-container">
           <select name="Product Quantity" class="product-quantity product-quantity-js">
-            <option selected value="1">1</option>
+            <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>
             <option value="4">4</option>
@@ -62,11 +56,10 @@ function renderProducts() {
         </div>
       </div>`;
   });
-  body.innerHTML = html;
+  document.querySelector(".main-js").innerHTML = html;
   document.querySelector(".cart-quantity-js").innerText = cartQuantityCalculate(cartItems);
 }
 renderProducts();
-
 
 let productQuantity = parseInt(
   document.querySelector(".cart-quantity").innerText
@@ -75,26 +68,9 @@ let productQuantity = parseInt(
 document.querySelectorAll(".add-to-cart-btn-js").forEach((Items) => {
   Items.addEventListener("click", () => {
     const productId = Items.dataset.id;
-    document.querySelector(".cart-quantity").innerText = productQuantity;
-
-    const productContainer = Items.closest(".product-container");
-    const quantity = productContainer.querySelector(".product-quantity-js");
-    let q = 0;
-    let matchingItem;
-    cartItems.forEach((cartItem) => {
-      if (cartItem.productId === productId) {
-        matchingItem = cartItem;
-      }
-    });
-    if (matchingItem) {
-      matchingItem.quantity += parseInt(quantity.value);
-    } else {
-      cartItems.push({
-        productId: productId,
-        quantity: parseInt(quantity.value),
-        deliveryOptionId: "1",
-      });
-    }
+    const quantity = document.querySelector('.product-quantity-js').value;
+    console.log(typeof Number(quantity) );
+    addToCart( productId, Number(quantity));
     document.querySelector(".cart-quantity-js").innerText = cartQuantityCalculate(cartItems);
   });
 });
