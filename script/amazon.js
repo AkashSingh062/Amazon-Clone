@@ -73,6 +73,6 @@ document.querySelectorAll(".add-to-cart-btn-js").forEach((Items) => {
     const selectedQuantity = parseInt(quantityDropdown.value);
 
     addToCart(productId, selectedQuantity);
-    document.querySelector(".cart-quantity-js").innerText = cartQuantityCalculate(cartItems);
+    renderCartQuantity(cartItems);
   });
 });
