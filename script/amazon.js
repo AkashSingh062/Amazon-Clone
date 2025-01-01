@@ -2,8 +2,13 @@ import { products } from "../Data/products.js";
 import { cartItems, addToCart, cartQuantityCalculate } from "../Data/cartItems.js";
 
 
-
-function renderProducts() {
+function renderCartQuantity(cart){
+  let quantity = 0;
+  cart.forEach(item => {
+    quantity += parseInt(item.quantity);
+  })
+  document.querySelector(".cart-quantity-js").innerText = cartQuantityCalculate(cartItems);
+};
   let html = "";
   products.forEach((product) => {
     html += `<div class="product-container">
@@ -27,8 +32,8 @@ function renderProducts() {
           2
         )}</div>
         <div class="product-quantity-container">
-          <select name="Product Quantity" class="product-quantity product-quantity-js">
-            <option value="1">1</option>
+          <select name="Product Quantity" data-id="${product.id}" class="product-quantity">
+            <option selected value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>
             <option value="4">4</option>
@@ -57,20 +62,17 @@ function renderProducts() {
       </div>`;
   });
   document.querySelector(".main-js").innerHTML = html;
-  document.querySelector(".cart-quantity-js").innerText = cartQuantityCalculate(cartItems);
-}
-renderProducts();
-
-let productQuantity = parseInt(
-  document.querySelector(".cart-quantity").innerText
-);
+  renderCartQuantity(cartItems);
 
 document.querySelectorAll(".add-to-cart-btn-js").forEach((Items) => {
   Items.addEventListener("click", () => {
     const productId = Items.dataset.id;
-    const quantity = document.querySelector('.product-quantity-js').value;
-    console.log(typeof Number(quantity) );
-    addToCart( productId, Number(quantity));
+
+    const parentContainer = Items.closest(".product-container");
+    const quantityDropdown = parentContainer.querySelector(".product-quantity");
+    const selectedQuantity = parseInt(quantityDropdown.value);
+
+    addToCart(productId, selectedQuantity);
     document.querySelector(".cart-quantity-js").innerText = cartQuantityCalculate(cartItems);
   });
 });

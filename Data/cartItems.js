@@ -48,8 +48,7 @@ export function addToCart( productId, productQuantity){
     });
   }
   saveToLocalStorage();
-
-}
+};
 
 //  || REMOVE FROM THE CART FUNCTION:
 
