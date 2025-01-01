@@ -15,7 +15,7 @@ if (!cartItems) {
   ];
 }
 
-export function saveToLocalStorage(){
+export function saveToLocalStorage(cartItems){
   localStorage.setItem('cartItems', JSON.stringify(cartItems));
 }
 
@@ -47,7 +47,7 @@ export function addToCart( productId, productQuantity){
       deliveryOptionId : '1'
     });
   }
-  saveToLocalStorage();
+  saveToLocalStorage(cartItems);
 };
 
 //  || REMOVE FROM THE CART FUNCTION:
@@ -61,5 +61,5 @@ export function removeFromCart(productId){
     }
   })
   cartItems = newCart;
-  saveToLocalStorage();
+  saveToLocalStorage(cartItems);
 };

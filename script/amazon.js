@@ -1,5 +1,5 @@
 import { products } from "../Data/products.js";
-import { cartItems, addToCart, cartQuantityCalculate } from "../Data/cartItems.js";
+import { cartItems, addToCart, cartQuantityCalculate, saveToLocalStorage } from "../Data/cartItems.js";
 
 
 function renderCartQuantity(cart){
@@ -74,5 +74,6 @@ document.querySelectorAll(".add-to-cart-btn-js").forEach((Items) => {
 
     addToCart(productId, selectedQuantity);
     renderCartQuantity(cartItems);
+    saveToLocalStorage(cartItems);
   });
 });

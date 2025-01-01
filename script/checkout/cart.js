@@ -1,10 +1,9 @@
 import { products } from "../../Data/products.js";
-import { cartItems, removeFromCart } from "../../Data/cartItems.js";
+import { cartItems, removeFromCart, saveToLocalStorage } from "../../Data/cartItems.js";
 
 export function renderCheckout() {
   let cartHTML = "";
   cartItems.forEach((item) => {
-    console.log(item.quantity);
     const product = products.find((p) => p.id === item.productId);
     cartHTML += `<div class="cart-items-container">
           <div class="delivery-date">
@@ -78,6 +77,7 @@ export function renderCheckout() {
   document.querySelectorAll(".delete-quantity-js").forEach((del) => {
     del.addEventListener("click", () => {
       removeFromCart(del.dataset.id);
+      saveToLocalStorage(cartItems);
       renderCheckout();
     });
   });
